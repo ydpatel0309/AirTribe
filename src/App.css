@@ -33,6 +33,10 @@ h1{
   color: white;
 
 }
+#one
+{
+  color: #eb7e7e;
+}
 button {
     color: black;
   border-radius: 10em;
@@ -55,3 +59,4 @@ button:active {
   transform: translateY(2px) translateX(1px);
   box-shadow: 0 0 0 0 black;
 };
+

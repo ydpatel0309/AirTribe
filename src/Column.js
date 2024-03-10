@@ -62,6 +62,13 @@ const Column = ({ status, tasks, moveTask, onTaskContentChange, onDeleteTask, on
   const columnTasks = tasks.filter((task) => task.status === status);
   const cardCount = columnTasks.length;
 
+  const statusColors = {
+    todo: '#eb7e7e',
+    inprogress : '#daeb92',
+    completed: '#a8a9a4',
+  };
+  
+
   const handleAddNewTask = () => {
     const newContent = window.prompt('Enter task content:');
     if (newContent !== null && newContent.trim() !== '') {
@@ -71,13 +78,12 @@ const Column = ({ status, tasks, moveTask, onTaskContentChange, onDeleteTask, on
 
   return (
     <div ref={drop} className='col_in'>
-      <h2>
-        {status.charAt(0).toUpperCase() + status.slice(1)} ({cardCount} cards)
-      </h2>
-      {/* <button onClick={handleAddNewTask}>Add New Task</button> */}
+    <h2 style={{ color: statusColors[status] || 'black' }}>
+  {status.charAt(0).toUpperCase() + status.slice(1)} ({cardCount} cards)
+    </h2>
+
       {columnTasks.map((task) => (
         <Task
-        
           key={task.id}
           task={task}
           moveTask={moveTask}

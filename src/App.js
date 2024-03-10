@@ -10,7 +10,7 @@ const App = () => {
   const initialTasks = JSON.parse(localStorage.getItem('tasks')) || [
     { id: 1, content: 'Task 1', status: 'todo' },
     { id: 2, content: 'Task 2', status: 'todo' },
-    { id: 3, content: 'Task 3', status: 'in-progress' },
+    { id: 3, content: 'Task 3', status: 'inprogress' },
     { id: 4, content: 'Task 4', status: 'completed' },
   ];
   const [tasks, setTasks] = useState(initialTasks);
@@ -25,13 +25,12 @@ const App = () => {
     const taskContent = window.prompt('Enter task content:');
 
     // Check if the user entered something
-    if (taskContent) {
+    if (taskContent !== null) {
       const newTask = {
         id: tasks.length + 1,
-        content: taskContent, 
+        content: taskContent.trim() || 'No content', // Set default content if empty
         status: 'todo',
       };
-
       setTasks([...tasks, newTask]);
     }
   };
@@ -59,7 +58,7 @@ const App = () => {
     setTasks(updatedTasks);
   };
 
-  return (
+   return (
     <DndProvider backend={HTML5Backend}>
       <div className='outer'>
         <div className='todo_header'>
@@ -71,7 +70,7 @@ const App = () => {
           </button>
         </div>
 
-        <div style={{ display: 'flex' ,color:'white'}}>
+        <div style={{ display: 'flex', color: 'white' }}>
           <Column
             status="todo"
             tasks={tasks}
@@ -81,7 +80,7 @@ const App = () => {
             onAddNewTask={addTask}
           />
           <Column
-            status="in-progress"
+            status="inprogress"
             tasks={tasks}
             moveTask={moveTask}
             onTaskContentChange={handleTaskContentChange}
@@ -98,7 +97,6 @@ const App = () => {
           />
         </div>
       </div>
-      
     </DndProvider>
   );
 };
