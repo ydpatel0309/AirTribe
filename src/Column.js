@@ -35,16 +35,17 @@ const Task = ({ task, moveTask, onTaskContentChange, onDeleteTask }) => {
       ref={drag}
       style={{
         opacity: isDragging ? 0.5 : 1,
-        border: '1px solid #000',
+        border: '1px solid white',
         padding: '8px',
         marginBottom: '4px',
-        backgroundColor: '#fff',
+        backgroundColor: 'transparent',
       }}
     >
       <div className="content">
         {task.content}
+        
       </div>
-      <div>
+      <div className='btn'>
         <button onClick={handleEditClick} id="edit">Edit</button>
         <button onClick={handleDeleteClick} id="delete">Delete</button>
       </div>
@@ -76,6 +77,7 @@ const Column = ({ status, tasks, moveTask, onTaskContentChange, onDeleteTask, on
       {/* <button onClick={handleAddNewTask}>Add New Task</button> */}
       {columnTasks.map((task) => (
         <Task
+        
           key={task.id}
           task={task}
           moveTask={moveTask}

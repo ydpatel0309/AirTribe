@@ -11,13 +11,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: transparent;
 }
 .col_in
 {
     flex: 1;
     padding:16px;
     margin: 8px;
-    border: 1px solid black;
+    border: 1px solid white;
     border-radius:0px;
     
+}
+.btn
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

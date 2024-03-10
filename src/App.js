@@ -63,7 +63,7 @@ const App = () => {
     <DndProvider backend={HTML5Backend}>
       <div className='outer'>
         <div className='todo_header'>
-          <h1>Todo App</h1>
+          <h1>TRIBE-TASK</h1>
         </div>
         <div className='new_task'>
           <button onClick={addTask} id='new_button'>
@@ -71,7 +71,7 @@ const App = () => {
           </button>
         </div>
 
-        <div style={{ display: 'flex' }}>
+        <div style={{ display: 'flex' ,color:'white'}}>
           <Column
             status="todo"
             tasks={tasks}
@@ -98,6 +98,7 @@ const App = () => {
           />
         </div>
       </div>
+      
     </DndProvider>
   );
 };
